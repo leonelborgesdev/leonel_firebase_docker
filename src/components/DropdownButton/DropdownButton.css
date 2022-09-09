@@ -1,0 +1,17 @@
+.container_search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.lista_select ul,
+.lista_select ol{
+    list-style: none;
+}
+.lista_select li{
+    list-style: none;
+    background: #2a0250;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
