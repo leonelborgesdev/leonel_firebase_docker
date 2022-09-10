@@ -1,8 +1,13 @@
-import { GET_ALL_PERSONS } from "../actions/types";
+import {
+  CHANGE_ATTRIB,
+  GET_ALL_PERSONS,
+  GET_PERSON_BY_ATRIB,
+} from "../actions/types";
 
 const initialState = {
   personas: [],
-  dropdowname: "Nombre",
+  personas_table: [],
+  attribFilter: "nombre",
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -11,6 +16,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         personas: action.payload,
+        personas_table: action.payload,
+      };
+    case GET_PERSON_BY_ATRIB:
+      return {
+        ...state,
+        personas: action.payload,
+      };
+    case CHANGE_ATTRIB:
+      return {
+        ...state,
+        attribFilter: action.payload,
       };
     default:
       return {

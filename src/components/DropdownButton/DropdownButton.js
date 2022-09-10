@@ -1,16 +1,42 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeFilterAttrib } from "../../redux/actions";
 import "./DropdownButton.css";
 
 export const DropdownButton = () => {
-  const { dropdowname } = useSelector((state) => state);
+  const { attribFilter } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const [attrib] = useState([
+    { name: "nombre" },
+    { name: "razon_social" },
+    { name: "nit" },
+    { name: "telefono" },
+    { name: "codigo" },
+  ]);
+  const handleChangeAttrib = (e) => {
+    const { id } = e.target;
+    dispatch(changeFilterAttrib(id));
+  };
   return (
     <div className="header_lista">
       <ul className="lista_select">
         <li>
-          <h3>Nombre</h3>
+          <h3>{attribFilter.toUpperCase()}</h3>
           <ul>
-            <li>
+            {attrib.map((obj) => {
+              return (
+                <React.Fragment key={obj.name}>
+                  {obj.name !== attribFilter && (
+                    <li key={obj.name}>
+                      <h3 id={obj.name} onClick={handleChangeAttrib}>
+                        {obj.name.toUpperCase()}
+                      </h3>
+                    </li>
+                  )}
+                </React.Fragment>
+              );
+            })}
+            {/* <li>
               <h3>Razon Social</h3>
             </li>
             <li>
@@ -20,8 +46,8 @@ export const DropdownButton = () => {
               <h3>Telefono</h3>
             </li>
             <li>
-              <h3>Codogo</h3>
-            </li>
+              <h3>Codigo</h3>
+            </li> */}
           </ul>
         </li>
       </ul>
