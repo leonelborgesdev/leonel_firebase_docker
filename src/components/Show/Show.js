@@ -40,16 +40,16 @@ export const Show = () => {
               <input type={"text"} onChange={handlefilter} />
               <div className="d-grid gap-2">
                 <button
-                  className="btn btn-secondary mt-2 mb-2"
+                  className="btn btn-success mt-2 mb-2"
                   onClick={handleAbrirModal}
                 >
-                  Create
+                  AGREGAR
                 </button>
               </div>
             </div>
             <table className="table table-striped table-hover">
               <thead>
-                <tr className="table-primary">
+                <tr className="header_table">
                   <th>#</th>
                   <th>Nombre</th>
                   <th>Razon Social</th>

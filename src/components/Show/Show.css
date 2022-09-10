@@ -2,10 +2,18 @@
     width: 100%;
     margin-bottom: 50px;
     cursor: pointer;
+    background: #609cb4;
+    border: #609cb4;
+    border-radius: 5px;
+}
+.button_bajar:hover{
     background: #518ba1;
     border: #518ba1;
-    border-radius: 5px;
 }
 .button_bajar img{
     width: 30px;
+}
+.header_table{
+    background: #609cb4;
+    color: #fff;
 }

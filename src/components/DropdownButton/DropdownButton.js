@@ -29,7 +29,9 @@ export const DropdownButton = () => {
                   {obj.name !== attribFilter && (
                     <li key={obj.name}>
                       <h3 id={obj.name} onClick={handleChangeAttrib}>
-                        {obj.name.toUpperCase()}
+                        {obj.name.toUpperCase() === "RAZON_SOCIAL"
+                          ? "RAZON SOCIAL"
+                          : obj.name.toUpperCase()}
                       </h3>
                     </li>
                   )}

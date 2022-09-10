@@ -14,8 +14,11 @@ import { useDispatch } from "react-redux";
 import { getAllPersons } from "../../redux/actions";
 import { db } from "../../firebaseConfig/firebase";
 import "./Create.css";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-export const Create = ({ state, handleAbrirModal, getPersonas }) => {
+export const Create = ({ state, handleAbrirModal }) => {
+  const MySwal = withReactContent(Swal);
   const dispatch = useDispatch();
 
   const [nombre, setNombre] = useState("");
@@ -41,6 +44,13 @@ export const Create = ({ state, handleAbrirModal, getPersonas }) => {
                 codigo,
               });
               dispatch(getAllPersons());
+              MySwal.fire({
+                // position: "center",
+                icon: "success",
+                title: "Datos Guardados Correctamente",
+                showConfirmButton: false,
+                timer: 3000,
+              });
               handleAbrirModal();
             } else {
               setLabelError("Debe introduzir Datos en el campo Codigo");
