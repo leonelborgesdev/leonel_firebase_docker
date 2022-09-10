@@ -1,0 +1,9 @@
+.button_bajar{
+    width: 100%;
+    margin-bottom: 50px;
+}
+.button_bajar button{
+    width: 100%;
+    background: #c6d4eb;
+    border: #c6d4eb;
+}

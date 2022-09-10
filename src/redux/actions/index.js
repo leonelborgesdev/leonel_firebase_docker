@@ -1,7 +1,12 @@
 import { async } from "@firebase/util";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig/firebase";
-import { CHANGE_ATTRIB, GET_ALL_PERSONS, GET_PERSON_BY_ATRIB } from "./types";
+import {
+  CHANGE_ATTRIB,
+  CHANGE_PAGINA,
+  GET_ALL_PERSONS,
+  GET_PERSON_BY_ATRIB,
+} from "./types";
 
 export const getAllPersons = () => {
   return async function (dispatch) {
@@ -37,6 +42,14 @@ export const changeFilterAttrib = (attrib) => {
     dispatch({
       type: CHANGE_ATTRIB,
       payload: attrib,
+    });
+  };
+};
+export const changePagina = (pagina) => {
+  return function (dispatch) {
+    dispatch({
+      type: CHANGE_PAGINA,
+      payload: pagina + 20,
     });
   };
 };

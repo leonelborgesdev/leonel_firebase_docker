@@ -1,7 +1,5 @@
 import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { db } from "../firebaseConfig/firebase";
 import {
   Modal,
   ModalHeader,
@@ -13,7 +11,8 @@ import {
   Button,
 } from "reactstrap";
 import { useDispatch } from "react-redux";
-import { getAllPersons } from "../redux/actions";
+import { getAllPersons } from "../../redux/actions";
+import { db } from "../../firebaseConfig/firebase";
 
 export const Create = ({ state, handleAbrirModal, getPersonas }) => {
   const dispatch = useDispatch();

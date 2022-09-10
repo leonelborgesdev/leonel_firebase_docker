@@ -1,3 +1,4 @@
 export const GET_ALL_PERSONS = "GET_ALL_PERSONS";
 export const GET_PERSON_BY_ATRIB = "GET_PERSON_BY_ATRIB";
 export const CHANGE_ATTRIB = "CHANGE_ATTRIB";
+export const CHANGE_PAGINA = "CHANGE_PAGINA";

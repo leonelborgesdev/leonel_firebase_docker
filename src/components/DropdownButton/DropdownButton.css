@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: center;
 }
+.lista_select{
+  margin: 0px;
+  padding: 0px;
+}
 .container_search{
     display: flex;
     align-items: center;
@@ -16,6 +20,8 @@
 }
 .container_search input{
   height: 33px;
+  width: 100%;
+  margin-right: 20px;
 }
 ul,
 ol {
@@ -30,6 +36,7 @@ ol {
   right: 16px;
   top: 2px;
   width: 170px;
+  margin-right: 20px;
 }
 #name_item {
   background: #1F1D36;
