@@ -22,8 +22,9 @@ export const getAllPersons = () => {
 };
 export const getPersonByAttrib = (personas, colum, value) => {
   return function (dispatch) {
-    const filterPerson = personas.filter((persona) => persona[colum] === value);
-    console.log(personas, colum, value, filterPerson);
+    const filterPerson = personas.filter(
+      (persona) => persona[colum].toUpperCase() === value.toUpperCase()
+    );
     if (filterPerson.length > 0) {
       dispatch({
         type: GET_PERSON_BY_ATRIB,

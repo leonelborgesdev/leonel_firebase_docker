@@ -13,6 +13,7 @@ import {
 import { useDispatch } from "react-redux";
 import { getAllPersons } from "../../redux/actions";
 import { db } from "../../firebaseConfig/firebase";
+import "./Create.css";
 
 export const Create = ({ state, handleAbrirModal, getPersonas }) => {
   const dispatch = useDispatch();
@@ -24,18 +25,38 @@ export const Create = ({ state, handleAbrirModal, getPersonas }) => {
   const [codigo, setCodigo] = useState("");
 
   const personaCollection = collection(db, "persona");
-
+  const [labelError, setLabelError] = useState("");
   const store = async (e) => {
     e.preventDefault();
-    await addDoc(personaCollection, {
-      nombre,
-      razon_social,
-      nit,
-      telefono,
-      codigo,
-    });
-    dispatch(getAllPersons());
-    handleAbrirModal();
+    if (nombre.length > 0) {
+      if (razon_social.length > 0) {
+        if (nit.length > 0) {
+          if (telefono.length > 0) {
+            if (codigo.length > 0) {
+              await addDoc(personaCollection, {
+                nombre,
+                razon_social,
+                nit,
+                telefono,
+                codigo,
+              });
+              dispatch(getAllPersons());
+              handleAbrirModal();
+            } else {
+              setLabelError("Debe introduzir Datos en el campo Codigo");
+            }
+          } else {
+            setLabelError("Debe introduzir Datos en el campo Telefono");
+          }
+        } else {
+          setLabelError("Debe introduzir Datos en el campo Nit");
+        }
+      } else {
+        setLabelError("Debe introduzir Datos en el campo Razon Social");
+      }
+    } else {
+      setLabelError("Debe introduzir Datos en el campo Nombre");
+    }
   };
   return (
     <>
@@ -82,6 +103,9 @@ export const Create = ({ state, handleAbrirModal, getPersonas }) => {
                 onChange={(e) => setCodigo(e.target.value)}
                 type="text"
               ></Input>
+            </FormGroup>
+            <FormGroup>
+              <Label className="label_error">{labelError}</Label>
             </FormGroup>
           </ModalBody>
           <ModalFooter>

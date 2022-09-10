@@ -8,6 +8,7 @@ import {
 } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { DropdownButton } from "../DropdownButton/DropdownButton.js";
+import arrow from "../../assets/arrow.svg";
 import "./Show.css";
 
 export const Show = () => {
@@ -75,8 +76,8 @@ export const Show = () => {
               </tbody>
             </table>
             {personas.length > objetos && (
-              <div className="button_bajar">
-                <button onClick={handlePaginado}>v</button>
+              <div className="button_bajar" onClick={handlePaginado}>
+                <img src={arrow} alt={"image"} />
               </div>
             )}
           </div>
